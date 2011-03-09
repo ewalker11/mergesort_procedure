@@ -1,95 +1,85 @@
 <html>
 <head>
+
 <link type="text/css" href="css/ui-lightness/jquery-ui-1.8.10.custom.css" rel="stylesheet" />
 <script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.8.10.custom.min.js"></script>
 </head>
 <body>
 <meta charset="utf-8">
-	
-	
-	
-	
-	
-	
-	
-	
+
 	<style>
-	#sortable1, #sortable2, #sortable3 { list-style-type: none; margin: 0; padding: 0; float: left; margin-right: 10px; background: #eee; padding: 5px; width: 143px;}
-	#sortable1 li, #sortable2 li, #sortable3 li { margin: 5px; padding: 5px; font-size: 1.2em; width: 120px; }
+	#sortable { 
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		float: left;
+		margin-right: 10px;
+		background: #eee;
+		padding: 5px;
+		width: 250px;
+		height: 40px;
+  }
+	
+	.draggable { 
+		padding: 5px;
+		font-size: 1.2em;
+		height: 50px
+		width: 50px;
+	}
+
+	#sortable > div {
+		float:left;
+	}
+
 	</style>
+
 	<script>
 	$(function() {
-		$( "ul.droptrue" ).sortable({
-			connectWith: "ul"
+		$( "div.droptrue" ).sortable({
+			connectWith: "div"
 		});
 
-		$( "ul.dropfalse" ).sortable({
-			connectWith: "ul",
-			dropOnEmpty: false
+		$( "#sortable" ).disableSelection();
+		$( "#sortable" ).sortable({
+			revert: true
 		});
-
-		$( "#sortable1, #sortable2, #sortable3" ).disableSelection();
 	});
 	</script>
 
 
 <div class="demo">
 
-<ul id="SetA">
-<li id="ListA">
-<ul id="ListA1" class='droptrue'>
-	<li class="ui-state-default">Can be dropped..</li>
-	<li class="ui-state-default">..on an empty list</li>
-	<li class="ui-state-default">Item 3</li>
-	<li class="ui-state-default">Item 4</li>
-	<li class="ui-state-default">Item 5</li>
-</ul>
-</li>
-</ul>
+<table id="MasterTable">
+<tr>
+<td id="ListA">
+<div id="sortable" class='ui-state-default droptrue'>
+	<div class="ui-state-default draggable">0</div>
+	<div class="ui-state-default draggable">1</div>
+	<div class="ui-state-default draggable">2</div>
+	<div class="ui-state-default draggable">3</div>
+	<div class="ui-state-default draggable">4</div>
+	<div class="ui-state-default draggable">5</div>
+	<div class="ui-state-default draggable">6</div>
+	<div class="ui-state-default draggable">7</div>
+</div>
+</td>
+</tr>
 
-<ul id="ListB1" class='dropfalse'>
-	<li class="ui-state-highlight">Cannot be dropped..</li>
-	<li class="ui-state-highlight">..on an empty list</li>
-	<li class="ui-state-highlight">Item 3</li>
-	<li class="ui-state-highlight">Item 4</li>
-	<li class="ui-state-highlight">Item 5</li>
-</ul>
+<tr id="ListB">
+<td>
+<div id="sortable" class='ui-state-default droptrue'>
+</div>
+</td>
+<td>
+<div id="sortable" class='ui-state-default droptrue'>
+</div>
+</td>
+</tr>
 
-<ul id="sortable1" class='droptrue'>
-	<li class="ui-state-default">Can be dropped..</li>
-	<li class="ui-state-default">..on an empty list</li>
-	<li class="ui-state-default">Item 3</li>
-	<li class="ui-state-default">Item 4</li>
-	<li class="ui-state-default">Item 5</li>
-</ul>
-
-<ul id="sortable2" class='dropfalse'>
-	<li class="ui-state-highlight">Cannot be dropped..</li>
-	<li class="ui-state-highlight">..on an empty list</li>
-	<li class="ui-state-highlight">Item 3</li>
-	<li class="ui-state-highlight">Item 4</li>
-	<li class="ui-state-highlight">Item 5</li>
-</ul>
-
-<ul id="sortable1" class='droptrue'>
-	<li class="ui-state-default">Can be dropped..</li>
-	<li class="ui-state-default">..on an empty list</li>
-	<li class="ui-state-default">Item 3</li>
-	<li class="ui-state-default">Item 4</li>
-	<li class="ui-state-default">Item 5</li>
-</ul>
-
-<ul id="sortable2" class='dropfalse'>
-	<li class="ui-state-highlight">Cannot be dropped..</li>
-	<li class="ui-state-highlight">..on an empty list</li>
-	<li class="ui-state-highlight">Item 3</li>
-	<li class="ui-state-highlight">Item 4</li>
-	<li class="ui-state-highlight">Item 5</li>
-</ul>
-
-<ul id="sortable3" class='droptrue'>
-</ul>
+</table>
+<div id="sortable" class='ui-state-default droptrue'>
+</div>
 
 <br clear="both" />
 
